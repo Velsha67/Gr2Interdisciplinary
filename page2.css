@@ -1,124 +1,390 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+
 body {
-    background-color: #f4f6fa;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
+
+    background: linear-gradient(
+        180deg,
+        #10109A 0%,
+        #2929B5 35%,
+        #7773D0 68%,
+        #DCD9F5 100%
+    );
 }
 
-/* Main container */
-.team-container {
-    width: 95%;
-    max-width: 1400px;
-    margin: 40px auto;
-}
 
-/* Title */
-.team-title {
+
+
+h1 {
     text-align: center;
-    margin-bottom: 40px;
-}
 
-.team-title h1 {
-    color: #080878;
-    font-size: 40px;
-    margin-bottom: 5px;
-}
+    margin-top: 25px;
 
-.team-title p {
-    font-size: 20px;
-    color: #222;
-}
+    font-size: 48px;
 
-/* Team cards */
-.team-collage {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    width: 100%;
-    margin: 0 auto;
-}
+    font-weight: 800;
 
-/* Individual cards */
-.member-card {
-    width: 200px;
-    min-height: 500px;
-    background-color: #080878;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
     color: white;
-    box-shadow: 0 5px 15px #aaa;
+
+    letter-spacing: 2px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================
+   CAROUSEL
+========================= */
+
+.carousel {
+    width: 100%;
+    height: 650px;
+
+    position: relative;
+
+    margin-top: 30px;
+     background: transparent;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    width: 390px;
+    height: 520px;
+
+    position: absolute;
+
+    top: 30px;
+    left: 50%;
+
+    background: white;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.6s ease,
+        opacity 0.6s ease,
+        filter 0.6s ease;
+
+    transform-origin: center center;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.card img {
+    width: 100%;
+    height: 320px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================
+   CARD INFORMATION
+========================= */
+
+.card-info {
+    height: 200px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: white;
+}
+
+
+.card-info h2 {
+    color: #3d2068;
+
+text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #67e8f9,
+    0 0 20px #22d3ee,
+    0 0 30px #0891b2;
+}
+
+
+.card-info p {
+    font-size: 20px;
+
+    color: #ffffff;
+
+text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #00bfff,
+    0 0 20px #008cff,
+    0 0 30px #0055ff;
+}
+
+
+/* =========================
+   CENTER CARD
+========================= */
+
+.card.center {
+
+    opacity: 1;
+
+    z-index: 5;
+
+    transform:
+        translateX(-50%)
+        scale(1);
+
+    filter: brightness(1);
+
+}
+
+
+/* =========================
+   LEFT CARD
+========================= */
+
+.card.left {
+
+    opacity: 1;
+
+    z-index: 3;
+
+    transform:
+        translateX(-120%)
+        rotate(-4deg)
+        scale(0.82);
+
+    filter: brightness(0.85);
+
+}
+
+
+/* =========================
+   RIGHT CARD
+========================= */
+
+.card.right {
+
+    opacity: 1;
+
+    z-index: 3;
+
+    transform:
+        translateX(20%)
+        rotate(4deg)
+        scale(0.82);
+
+    filter: brightness(0.85);
+
+}
+
+
+/* =========================
+   HIDDEN CARDS
+========================= */
+
+.card.hidden {
+
+    opacity: 0;
+
+    z-index: 1;
+
+    transform:
+        translateX(-50%)
+        scale(0.5);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================
+   ARROW BUTTONS
+========================= */
+
+.arrow {
+
+    position: absolute;
+
+    top: 48%;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    border: 2px solid #222;
+
+    background: white;
+
+    color: black;
+
+    font-size: 38px;
+
+    cursor: pointer;
+
+    z-index: 10;
 
     display: flex;
-    flex-direction: column;
+
+    justify-content: center;
+
     align-items: center;
+
+    transition: 0.3s;
 }
 
-/* Member images */
-.member-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
+
+/* BACK */
+
+.back {
+    left: 0;
 }
 
-/* Member names */
-.member-card h2 {
-    color: #ffff00;
-    font-size: 28px;
-    margin: 15px 0 8px;
+
+/* NEXT */
+
+.next {
+    right: 0;
 }
 
-/* Member roles */
-.member-card h3 {
-    font-size: 20px;
-    margin: 0 0 15px;
+
+/* =========================
+   BUTTON HOVER
+========================= */
+
+.arrow:hover {
+
+    background: #eeeeee;
+
+    transform: scale(1.1);
+
 }
 
-/* Description */
-.member-card p {
-    font-size: 18px;
-    line-height: 1.3;
-    margin: 0;
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .card {
+        width: 330px;
+        height: 480px;
+    }
+
+    .card img {
+        height: 290px;
+    }
+
+    .card.left {
+        transform:
+            translateX(-105%)
+            rotate(-4deg)
+            scale(0.75);
+    }
+
+    .card.right {
+        transform:
+            translateX(5%)
+            rotate(4deg)
+            scale(0.75);
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
 }
 
-/* Back Home button container */
-.container {
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 40px;
+.home-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
 }
 
-/* Back Home button */
-.center a button {
-    background-color: #080878;
-    color: #ffff00;
-    border: none;
-    border-radius: 10px;
-    padding: 14px 35px;
-    font-size: 18px;
+.home-button button {
+    padding: 12px 30px;
+
+    border: 2px solid white;
+    border-radius: 30px;
+
+    background: #4f46e5;
+    color: white;
+
+    font-size: 17px;
     font-weight: bold;
+
     cursor: pointer;
-    box-shadow: 0 5px 10px #aaa;
+
+    box-shadow:
+        0 0 5px white,
+        0 0 12px #c4b5fd,
+        0 0 20px #818cf8;
+
+    transition: 0.3s ease;
 }
 
-.center {
-  margin: 0;
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.home-button button:hover {
+    background: white ;
+    color:#4f46e5 ;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 8px white,
+        0 0 15px #a78bfa,
+        0 0 30px #6366f1;
 }
 
-/* Button hover */
-.center a button:hover {
-    background-color: #00005c;
-    transform: scale(1.05);
+@media (max-width: 600px) {
+
+    .card.left,
+    .card.right {
+        opacity: 0;
+    }
+
+    .card {
+        width: 310px;
+    }
+
+    .arrow {
+        width: 55px;
+        height: 55px;
+
+        font-size: 28px;
+    }
+
+    .back {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
 }
