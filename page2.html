@@ -9,27 +9,15 @@
     <link rel="stylesheet" href="page2.css">
 </head>
 
+
+
 <body>
 
-
-<audio id="bg-music" loop>
-  <source src="Countonme.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  // Trigger audio playback on the user's very first click or touch
-  window.addEventListener('click', () => {
-    const audio = document.getElementById('bg-music');
-    // Check if it's already playing to avoid restarting it
-    if (audio.paused) {
-      audio.play().catch(error => console.log("Playback prevented:", error));
-    }
-  }, { once: true }); // '{ once: true }' ensures this only fires on the first click
-</script>
 
 
 
     <h1>OUR DEVELOPERS</h1>
+
 
     <div class="carousel">
 
@@ -205,11 +193,27 @@
         updateCarousel();
 
     </script>
+
+
+
+
+
+
+
 <div class="home-button">
     <button onclick="window.location.href='index.html'">
         ← Back Home
     </button>
 </div>
+<br></br>
+
+
+  <audio autoplay>
+<source src="horse.ogg" type="audio/ogg">
+  <source src="CountonMe.mp3" type="audio/mpeg">
+
+
+
 
 </body>
 </html>
