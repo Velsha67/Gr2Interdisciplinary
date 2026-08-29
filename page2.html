@@ -11,26 +11,21 @@
 
 <body>
 
+
 <audio id="bg-music" loop>
-    <source src="Countonme.mp3" type="audio/mpeg">
+  <source src="Countonme.mp3" type="audio/mpeg">
 </audio>
 
-
 <script>
- 
-    const backgroundMusic = document.getElementById('bg-music');
-
-    document.body.addEventListener('click', function() {
-        if (backgroundMusic.paused) {
-            backgroundMusic.play();
-        }
-    }, { once: true }); // { once: true } ensures this only triggers on the very first click
+  // Trigger audio playback on the user's very first click or touch
+  window.addEventListener('click', () => {
+    const audio = document.getElementById('bg-music');
+    // Check if it's already playing to avoid restarting it
+    if (audio.paused) {
+      audio.play().catch(error => console.log("Playback prevented:", error));
+    }
+  }, { once: true }); // '{ once: true }' ensures this only fires on the first click
 </script>
-
-
-
-
-
 
 
 
